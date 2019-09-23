@@ -126,6 +126,7 @@ pipeline {
         echo "Testing Tasks Dev Application"
         script {
           def devTasksRoute = sh(returnStdout: true, script: "curl tasks-${GUID}-tasks-dev.apps.${CLUSTER}").trim()
+          echo "devTasksRoute: ${devTasksRoute}"
           // Check if the returned string contains "tasks-dev"
           if (devTasksRoute.contains("tasks-dev")) {
             echo "*** tasks-dev validated successfully."
